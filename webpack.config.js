@@ -1,12 +1,12 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
-  entry: "./src/app.js",
+  entry: './src/app.js',
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js"
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -14,22 +14,22 @@ module.exports = {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"]
-          }
-        }
-      }
-    ]
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html"
+      template: './src/index.html',
     }),
-    new FaviconsWebpackPlugin("./static/logo.png")
+    new FaviconsWebpackPlugin('./static/favicon.ico'),
   ],
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
-    port: 9000
-  }
+    contentBase: path.join(__dirname, 'dist'),
+    port: 9000,
+  },
 };
