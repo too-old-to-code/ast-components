@@ -7,6 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    libraryTarget: 'commonjs2',
   },
   module: {
     rules: [
@@ -31,5 +32,8 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     port: 9000,
+  },
+  externals: {
+    react: 'commonjs react', // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
   },
 };
