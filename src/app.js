@@ -1,7 +1,8 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
-import { PrimaryButton, SecondaryButton } from './atoms/buttons';
+// import { PrimaryButton, SecondaryButton } from './atoms/buttons';
 
+export { PrimaryButton } from './atoms/buttons';
 // class MyApp extends Component {
 //   render() {
 //     return <div>Hello World</div>;
@@ -9,6 +10,6 @@ import { PrimaryButton, SecondaryButton } from './atoms/buttons';
 // }
 //
 // export const PrimaryButton
-export { PrimaryButton, SecondaryButton };
+// export { PrimaryButton, SecondaryButton };
 
 // ReactDOM.render(<MyApp />, document.getElementById('app'));
