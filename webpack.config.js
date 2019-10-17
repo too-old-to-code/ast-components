@@ -1,13 +1,15 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   entry: './src/app.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    libraryTarget: 'commonjs2',
+    // filename: 'bundle.js',
+    library: 'ast-components',
+    libraryTarget: 'umd',
+    // libraryTarget: 'commonjs2',
   },
   module: {
     rules: [
@@ -27,7 +29,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
-    new FaviconsWebpackPlugin('./static/favicon.ico'),
+    new FaviconsWebpackPlugin('./static/logo.png'),
+    new CleanWebpackPlugin(),
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
