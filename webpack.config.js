@@ -6,10 +6,10 @@ module.exports = {
   entry: './src/app.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    // filename: 'bundle.js',
-    library: 'ast-components',
-    libraryTarget: 'umd',
-    // libraryTarget: 'commonjs2',
+    filename: 'main.js',
+    // library: 'ast-components',
+    // libraryTarget: 'umd',
+    libraryTarget: 'commonjs2',
   },
   module: {
     rules: [
