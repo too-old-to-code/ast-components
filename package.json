@@ -9,7 +9,7 @@
     "dev": "webpack-dev-server",
     "build": "webpack",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -o docs"
   },
   "keywords": [],
   "author": "",
