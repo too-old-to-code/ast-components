@@ -26,10 +26,10 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-    }),
-    new FaviconsWebpackPlugin('./static/logo.png'),
+    // new HtmlWebpackPlugin({
+    //   template: './src/index.html',
+    // }),
+    // new FaviconsWebpackPlugin('./static/logo.png'),
     new CleanWebpackPlugin(),
   ],
   devServer: {

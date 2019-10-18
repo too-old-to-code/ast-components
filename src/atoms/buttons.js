@@ -1,6 +1,33 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import styled, { ThemeProvider, css } from 'styled-components';
+import styled, { css } from 'styled-components';
+
+// const theme = {
+//   primary: `
+//     color: dodgerblue;
+//     background-color: purple;
+//     &:hover {
+//       color: green;
+//       background-color: blue;
+//     }
+//   `,
+//   secondary: `
+//     color: dodgerblue;
+//     background-color: orange;
+//     &:hover {
+//       color: green;
+//       background-color: gold;
+//     }
+//   `,
+//   default: `
+//     color: dodgerblue;
+//     background-color: orange;
+//     &:hover {
+//       color: green;
+//       background-color: gold;
+//     }
+//   `,
+// };
 
 const Button = styled.button`
   font-size: 1em;
@@ -15,8 +42,7 @@ const Button = styled.button`
 `;
 
 export const PrimaryButton = styled(Button)`
-  color: dodgerblue;
-  background-color: orange;
+  ${props => props.theme.primary}
   &:hover {
     color: green;
     background-color: gold;
