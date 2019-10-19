@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { MyButton, RedButton } from '../src/atoms/Button';
+// import { MyButton, RedButton } from '../src/atoms/Button';
 import { PrimaryButton, SecondaryButton } from '../src/atoms/buttons';
 import { text, boolean, number } from '@storybook/addon-knobs';
 import { addParameters } from '@storybook/react';
@@ -14,7 +14,7 @@ addParameters({
   readme: {
     // You can set the global code theme here.
     codeTheme: 'duotone-sea',
-    content: readme,
+    // content: readme,
     sidebar: readme,
 
     // You can exclude prop tables globally here.

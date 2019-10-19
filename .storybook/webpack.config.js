@@ -13,5 +13,10 @@ module.exports = function({ config }) {
     enforce: 'pre',
   });
 
+  config.module.rules.push({
+    test: /\.s[ac]ss$/i,
+    loaders: ['style-loader', 'css-loader', 'sass-loader'],
+  });
+
   return config;
 };
