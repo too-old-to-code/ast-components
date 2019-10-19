@@ -4,3 +4,4 @@ import React from 'react';
 // export default PrimaryButton;
 
 export * from './atoms/buttons';
+export * from './atoms/navbar';
