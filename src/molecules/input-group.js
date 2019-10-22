@@ -18,7 +18,6 @@ export const RadioButtonGroup = ({ name, onChange, value: selected, options }) =
 );
 
 export const CheckboxGroup = ({ name, onChange, value: selected, options }) => {
-  console.log(selected);
   return (
     <React.Fragment>
       {options.map(({ label, value }) => (
