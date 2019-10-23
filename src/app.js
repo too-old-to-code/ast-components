@@ -6,3 +6,4 @@ import React from 'react';
 export * from './atoms/buttons';
 export * from './atoms/navbar';
 export * from './molecules/input-group';
+export * from './organisms/nav-menu-complete';
