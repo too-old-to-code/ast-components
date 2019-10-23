@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 // ${/*props => props.theme.navbar*/}
 const Nav = styled.nav`
+  z-index: 50;
   color: white;
   background-color: grey;
   width: 100%;
