@@ -41,6 +41,28 @@ const Button = styled.button`
     `}
 `;
 
+const Link = styled.a`
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
+  ${props =>
+    props.disabled &&
+    css`
+      opacity: 0.5;
+    `}
+`;
+
+export const PrimaryLink = styled(Link)`
+  ${props => props.theme.primary}
+  text-decoration: none;
+  &:hover {
+    color: green;
+    background-color: gold;
+  }
+  border: 2px solid palevioletred;
+`;
+
 export const PrimaryButton = styled(Button)`
   ${props => props.theme.primary}
   &:hover {

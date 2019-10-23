@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -133,9 +133,10 @@ function handleOptions(values, value) {
   return [...values, value];
 }
 
-export const Checkbox = ({ name, checked, values, value, onChange }) => {
+export const Checkbox = ({ label, name, checked, values, value, onChange }) => {
   return (
     <Check>
+      {label}
       <input
         name={name}
         type="checkbox"

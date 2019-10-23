@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { PrimaryButton, SecondaryButton } from '../../src/atoms/buttons';
+import { PrimaryButton, SecondaryButton, PrimaryLink } from '../../src/atoms/buttons';
 import { text } from '@storybook/addon-knobs';
 import { addParameters } from '@storybook/react';
 import readme from './buttons.readme.md';
@@ -25,6 +25,10 @@ export const Primary = () => (
   <PrimaryButton disabled onClick={() => console.log('clicked')}>
     {text('value', 'Hello Storybook')}
   </PrimaryButton>
+);
+
+export const Link = () => (
+  <PrimaryLink href="http://google.com">{text('value', 'Hello Storybook')}</PrimaryLink>
 );
 
 export const Secondary = () => (
