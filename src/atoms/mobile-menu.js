@@ -1,5 +1,6 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
+
 const SPEED = 0.1;
 
 const fadeIn = keyframes`
@@ -44,3 +45,11 @@ export const Menu = styled.nav.attrs(props => ({ className: props.isOpen ? 'is-o
     }
   }
 `;
+
+Menu.propTypes = {
+  isOpen: PropTypes.bool,
+};
+
+Menu.defaultProps = {
+  isOpen: false,
+};

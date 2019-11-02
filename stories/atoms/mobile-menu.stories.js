@@ -5,6 +5,6 @@ export default {
   title: 'Atoms.Menu',
 };
 
-export const MobileMenu = props => {
+export const MobileMenu = () => {
   return <Menu isOpen />;
 };

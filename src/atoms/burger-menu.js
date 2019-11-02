@@ -1,6 +1,7 @@
 import './navbar.scss';
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Menu = styled.button.attrs(({ isActive, burgerStyle }) => ({
   className: `hamburger hamburger--${burgerStyle || 'spin'} ${
@@ -36,6 +37,12 @@ export const BurgerMenu = props => {
   );
 };
 
+BurgerMenu.propTypes = {
+  toggleOpen: PropTypes.func.isRequired,
+  isActive: PropTypes.bool.isRequired,
+  burgerStyle: PropTypes.string,
+};
+
 export const SideBurger = props => (
   <SideMenu onClick={props.toggleOpen} isActive={props.isActive} burgerStyle="arrowturn">
     <span className="hamburger-box">
@@ -43,3 +50,8 @@ export const SideBurger = props => (
     </span>
   </SideMenu>
 );
+
+SideBurger.propTypes = {
+  toggleOpen: PropTypes.func.isRequired,
+  isActive: PropTypes.bool.isRequired,
+};

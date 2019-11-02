@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FlexBox } from './flex-box';
 
-export const DragHandle = styled(FlexBox).attrs(props => ({
+export const DragHandle = styled(FlexBox).attrs(() => ({
   className: 'drag-handle',
 }))`
-  width: 50px;
+  width: 30px;
   background-color: white;
   opacity: 0.3;
+  cursor: grab;
+  border-left: 1px solid black;
 `;

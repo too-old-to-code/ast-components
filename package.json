@@ -15,6 +15,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.7",
     "@storybook/addon-a11y": "^5.2.3",
     "@storybook/addon-knobs": "^5.2.3",
     "@storybook/addon-storysource": "^5.2.3",

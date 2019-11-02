@@ -1,6 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Collapsible from 'react-collapsible';
 
 export const AstCollapsible = props => {
@@ -14,4 +13,11 @@ export const AstCollapsible = props => {
       {props.children}
     </Collapsible>
   );
+};
+
+AstCollapsible.propTypes = {
+  initial: PropTypes.object,
+  open: PropTypes.bool,
+  accordionPosition: PropTypes.string,
+  children: PropTypes.object,
 };

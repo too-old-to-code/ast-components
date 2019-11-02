@@ -1,5 +1,6 @@
-import './navbar.scss';
+// import './navbar.scss';
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 // ${/*props => props.theme.navbar*/}
@@ -72,4 +73,9 @@ export const Navbar = props => {
       <MyDiv>{props.itemsRight}</MyDiv>
     </Nav>
   );
+};
+
+Navbar.propTypes = {
+  logo: PropTypes.any,
+  itemsRight: PropTypes.object,
 };
