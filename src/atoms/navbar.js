@@ -1,5 +1,5 @@
 import './navbar.scss';
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 // ${/*props => props.theme.navbar*/}
@@ -7,65 +7,69 @@ const Nav = styled.nav`
   z-index: 50;
   color: white;
   background-color: grey;
+  background: ${({ theme }) => (theme && theme.navbar && theme.navbar.background) || '#3b3939'};
+  color: ${({ theme }) => (theme && theme.navbar && theme.navbar.textColor) || 'grey'};
+  font-family: sans-serif;
   width: 100%;
   display: flex;
   position: fixed;
   top: 0;
   left: 0;
-  min-height: 54px;
+  height: ${({ theme }) => (theme && theme.navbar && theme.navbar.height) || '54px'};
   justify-content: space-between;
-`;
-// @media (min-width: ${'768'}px) {
-// }
-
-// display: flex;
-// justify-content: space-between;
-const Span = styled.span`
-  @media (min-width: ${'768'}px) {
-    display: none;
+  @media (max-width: ${'767'}px) {
+    &:before {
+      content: '';
+      width: 54px;
+      height: ${({ theme }) => (theme && theme.navbar && theme.navbar.height) || '54px'};
+      display: block;
+    }
   }
 `;
 
-// <button
-//   className={`hamburger hamburger--${props.menuBtn || 'collapse'} ${
-//     props.isActive ? 'is-active' : ''
-//   }`}
-//   type="button"
-//   onClick={props.toggleOpen}
-// >
-//   <span className="hamburger-box">
-//     <span className="hamburger-inner"></span>
-//   </span>
-// </button>
-// <Span></Span>
+const MyDiv = styled.div`
+  display: flex;
+  > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    text-decoration: none;
+    position: relative;
+    &.selected {
+      background: ${({ theme }) =>
+        (theme && theme.navbar && theme.navbar.backgroundSelected) || 'black'};
+      > * {
+        display: block;
+      }
+    }
+    &:hover {
+      color: ${({ theme }) => (theme && theme.navbar && theme.navbar.hoverTextColor) || 'black'};
+    }
+  }
+  @media (max-width: ${'767'}px) {
+    display: none !important;
+  }
+`;
+
+const LogoBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  margin: 0 20px;
+  padding: 6px 0;
+  @media (max-width: ${'767'}px) {
+    justify-content: center;
+  }
+`;
+
 export const Navbar = props => {
   return (
     <Nav>
+      <LogoBox>{props.logo}</LogoBox>
       <div style={{ display: 'flex' }}>{}</div>
-      <div style={{ display: 'flex' }}>{props.itemsRight}</div>
+      <MyDiv>{props.itemsRight}</MyDiv>
     </Nav>
   );
 };
-
-// export const Navbar = props => {
-//   const [isActive, toggleActive] = useState(false);
-//   return (
-//     <Nav>
-//       <Span>
-//         <button
-//           className={`hamburger hamburger--${props.menuBtn || 'collapse'} ${
-//             isActive ? 'is-active' : ''
-//           }`}
-//           type="button"
-//           onClick={() => toggleActive(!isActive)}
-//         >
-//           <span className="hamburger-box">
-//             <span className="hamburger-inner"></span>
-//           </span>
-//         </button>
-//       </Span>
-//       <div style={{ display: 'flex' }}>{}</div>
-//       <div style={{ display: 'flex' }}>{props.itemsRight}</div>
-//     </Nav>
-//   );
-// };

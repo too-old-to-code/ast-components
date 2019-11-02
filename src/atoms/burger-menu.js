@@ -2,8 +2,8 @@ import './navbar.scss';
 import React from 'react';
 import styled from 'styled-components';
 
-const Menu = styled.button.attrs(({ isActive, menuBtn }) => ({
-  className: `hamburger hamburger--${menuBtn || 'spin'} ${
+const Menu = styled.button.attrs(({ isActive, burgerStyle }) => ({
+  className: `hamburger hamburger--${burgerStyle || 'spin'} ${
     isActive ? 'is-active' : ''
   } sidebar-menu`,
   type: 'button',
@@ -11,17 +11,35 @@ const Menu = styled.button.attrs(({ isActive, menuBtn }) => ({
   z-index: 200 !important;
   position: fixed;
   left: 0;
+  min-height: ${({ theme }) => (theme && theme.navbar && theme.navbar.height) || '54px'};
   @media (min-width: ${'768'}px) {
     display: none !important;
   }
 `;
 
+const SideMenu = styled(Menu)`
+  transform: rotate(180deg);
+  z-index: inherit;
+  position: absolute !important;
+  top: ${({ theme }) => (theme && theme.navbar && theme.navbar.height) || '54px'} !important;
+  right: 0;
+  left: initial !important;
+`;
+
 export const BurgerMenu = props => {
   return (
-    <Menu onClick={props.toggleOpen} isActive={props.isActive}>
+    <Menu onClick={props.toggleOpen} isActive={props.isActive} burgerStyle={props.burgerStyle}>
       <span className="hamburger-box">
         <span className="hamburger-inner"></span>
       </span>
     </Menu>
   );
 };
+
+export const SideBurger = props => (
+  <SideMenu onClick={props.toggleOpen} isActive={props.isActive} burgerStyle="arrowturn">
+    <span className="hamburger-box">
+      <span className="hamburger-inner"></span>
+    </span>
+  </SideMenu>
+);

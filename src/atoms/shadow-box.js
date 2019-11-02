@@ -4,13 +4,15 @@ import styled from 'styled-components';
 
 export const AstShadowBox = styled.div`
   ${props => (props.noPadding ? 'padding: 0' : 'padding: 10px')};
-  margin: 100px;
+  margin: 10px;
   ${props =>
     props.bottom
-      ? `box-shadow: 0 10px 6px -6px #777;`
+      ? `
+        box-shadow: 0 10px 6px -6px #777;
+      `
       : `position: relative;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-        background-color: white;
+        background-color: white !important;
         &:before,
         &:after {
           content: '';
@@ -27,5 +29,12 @@ export const AstShadowBox = styled.div`
           left: auto;
           transform: skew(8deg) rotate(3deg);
         }`}
+  &.sortable-chosen {
+    box-shadow: 0 10px 6px -6px #777;
+    border: 1px solid black;
+    background-color: white;
+    transform: translateZ(inherit);
+  }
+
   ${props => `background-color: ${props.color};`}
 `;

@@ -4,9 +4,18 @@ import { Navbar } from '../atoms/navbar';
 import { BurgerMenu } from '../atoms/burger-menu';
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
-export const NavMenuComplete = () => {
+export const NavMenuComplete = props => {
   const [isOpen, toggleOpen] = useState(false);
   const openMenu = useRef();
+
+  useEffect(() => {
+    const handleResize = () => toggleOpen(false);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  });
+
   useEffect(() => {
     let targetElement = openMenu;
     if (isOpen) {
@@ -21,10 +30,15 @@ export const NavMenuComplete = () => {
 
   return (
     <React.Fragment>
-      <Navbar />
-      <Menu isOpen={isOpen} ref={openMenu} />
-      <BurgerMenu toggleOpen={() => toggleOpen(!isOpen)} isActive={isOpen} />
+      <Navbar itemsRight={props.desktopItems} logo={props.logo} />
+      <Menu isOpen={isOpen} ref={openMenu}>
+        {props.mobileItems}
+      </Menu>
+      <BurgerMenu
+        toggleOpen={() => toggleOpen(!isOpen)}
+        isActive={isOpen}
+        burgerStyle={props.burgerStyle}
+      />
     </React.Fragment>
   );
 };
-
