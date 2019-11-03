@@ -8,7 +8,6 @@ export const Button = styled.button`
   border: none;
   border-radius: ${props => props.theme.buttons.borderRadius};
   ${props => getButtonColors(props)}
-  color: white;
   ${props =>
     props.disabled &&
     css`
