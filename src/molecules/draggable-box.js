@@ -40,6 +40,6 @@ export const AstDraggableBox = props => {
 };
 
 AstDraggableBox.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.string,
   category: PropTypes.string,
 };

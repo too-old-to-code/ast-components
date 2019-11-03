@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavMenuComplete } from '../../src/organisms/nav-menu-complete';
 import { ThemeProvider } from 'styled-components';
 import { NavbarDropdown, BubbleDropdown } from '../../src/atoms/navbar-dropdown';
@@ -81,9 +81,29 @@ const theme = {
 };
 
 export const Test = () => {
+  const [modal, changeModal] = useState(null);
   return (
     <ThemeProvider theme={theme}>
-      <AstModalConductor isModalActive={false} />
+      <AstModalConductor isModalActive={modal}>
+        {modal => {
+          switch (modal) {
+            case 'a': {
+              return (
+                <div>
+                  here is the thing <button onClick={() => changeModal(null)}>x</button>
+                </div>
+              );
+            }
+            default:
+              return (
+                <div>
+                  default <button onClick={() => changeModal(null)}>x</button>
+                </div>
+              );
+          }
+        }}
+      </AstModalConductor>
+
       <div>
         <Bubble>hello</Bubble>
         {<AstSidebar></AstSidebar>}
@@ -113,6 +133,8 @@ export const Test = () => {
           }
         />
         <AstMainArea>
+          <button onClick={() => changeModal('b')}>default Modal</button>
+          <button onClick={() => changeModal('a')}>modal a</button>
           <SortableList>
             {[
               { id: 1, name: 'cat', category: 'word' },

@@ -60,7 +60,7 @@ const ModalWrapper = styled.div`
   }
 `;
 
-export const AstModalConductor = ({ isModalActive }) => {
+export const AstModalConductor = ({ children, isModalActive }) => {
   // const [isOpen, toggleOpen] = useState(false);
   const openModal = useRef();
 
@@ -77,7 +77,13 @@ export const AstModalConductor = ({ isModalActive }) => {
   });
   return (
     <ModalBackground isModalActive={isModalActive} ref={openModal}>
-      <ModalWrapper>hello</ModalWrapper>
+      <ModalWrapper>{children(isModalActive)}</ModalWrapper>
     </ModalBackground>
   );
+
+  // return (
+  //   <ModalBackground isModalActive={isModalActive} ref={openModal}>
+  //     <ModalWrapper>{children}</ModalWrapper>
+  //   </ModalBackground>
+  // );
 };
