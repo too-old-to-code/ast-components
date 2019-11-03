@@ -24,3 +24,22 @@ export const checkColor = props => {
       return 'initial';
   }
 };
+
+export const getButtonColors = props => {
+  switch (true) {
+    case props.danger:
+      return props.theme.buttons.danger;
+    case props.success:
+      return props.theme.buttons.success;
+    case props.default:
+      return props.theme.buttons.default;
+    case props.primary:
+      return props.theme.buttons.primary;
+    case props.warning:
+      return props.theme.buttons.warning;
+    case props.info:
+      return props.theme.buttons.info;
+    default:
+      return '';
+  }
+};

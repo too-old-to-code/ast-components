@@ -26,7 +26,7 @@ export const NavMenuComplete = props => {
     return () => {
       clearAllBodyScrollLocks();
     };
-  });
+  }, [isOpen]);
 
   return (
     <React.Fragment>

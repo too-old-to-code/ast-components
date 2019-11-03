@@ -15,69 +15,12 @@ import { SortableList } from '../../src/app';
 import { FlexBox } from '../../src/app';
 import { AstMainArea } from '../../src/app';
 import { AstModalConductor } from '../../src/app';
-
+import { AstModalWrapper } from '../../src/app';
+import { Button } from '../../src/app';
+import { AstButtonSpacer } from '../../src/app';
+import { theme } from '../../src/themes/theme-1';
 export default {
   title: 'Organisms.Test',
-};
-
-const theme1 = {
-  colors: {
-    default: 'grey',
-    primary: 'blue',
-    info: 'cyan',
-    success: 'green',
-    warning: 'orange',
-    danger: 'red',
-  },
-  menu: {
-    textColor: 'dodgerblue',
-    hoverTextColor: 'yellow',
-    background: 'linear-gradient(to left, #243B55, #141E30);',
-  },
-  navbar: {
-    textColor: '#e7e7e7',
-    hoverTextColor: 'white',
-    background: '#74b9ff',
-    backgroundSelected: '#2dbeff',
-    height: '55px',
-  },
-  sidebar: {
-    background: '#0984e3',
-    textColor: 'grey',
-  },
-};
-
-const theme = {
-  colors: {
-    default: '#718093',
-    primary: '#7f8fa6',
-    info: '#00a8ff',
-    success: '#4cd137',
-    warning: '#fbc531',
-    danger: '#e84118',
-    light: '#f5f6fa',
-    lightish: '#dcdde1',
-    dark: '#2f3640',
-    darkish: '#353b48',
-  },
-  menu: {
-    textColor: 'dodgerblue',
-    hoverTextColor: 'yellow',
-    background: 'linear-gradient(to left, #243B55, #141E30);',
-  },
-  navbar: {
-    textColor: '#e7e7e7',
-    hoverTextColor: 'white',
-    background: '#192a56',
-    backgroundSelected: '#2dbeff',
-    height: '55px',
-  },
-  sidebar: {
-    background: '#273c75',
-    textColor: 'grey',
-    collapsedWidth: '55px',
-    width: '300px',
-  },
 };
 
 export const Test = () => {
@@ -89,17 +32,48 @@ export const Test = () => {
           switch (modal) {
             case 'a': {
               return (
-                <div>
-                  here is the thing <button onClick={() => changeModal(null)}>x</button>
-                </div>
+                <AstModalWrapper
+                  heading="Delete section"
+                  icon="warning"
+                  footer={
+                    <AstButtonSpacer
+                      leftButton={
+                        <Button danger onClick={() => changeModal(null)}>
+                          Yes, delete.
+                        </Button>
+                      }
+                      rightButton={
+                        <Button default onClick={() => changeModal(null)}>
+                          Cancel
+                        </Button>
+                      }
+                    />
+                  }
+                >
+                  Deleting a section is an irreversible action. The section and all its child
+                  components will be permenantly erased. Are you sure you want to do this?
+                </AstModalWrapper>
+              );
+            }
+            case 'b': {
+              return (
+                <AstModalWrapper
+                  heading="Heading for second case"
+                  footer={
+                    <Button info onClick={() => changeModal(null)}>
+                      Cancel
+                    </Button>
+                  }
+                >
+                  <span>
+                    Here is the text that is to go into the modal. Hopefully, this should work in or
+                    out of a span element.
+                  </span>
+                </AstModalWrapper>
               );
             }
             default:
-              return (
-                <div>
-                  default <button onClick={() => changeModal(null)}>x</button>
-                </div>
-              );
+              return <AstModalWrapper></AstModalWrapper>;
           }
         }}
       </AstModalConductor>

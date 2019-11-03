@@ -1,37 +1,14 @@
 import styled, { css } from 'styled-components';
+import { getButtonColors } from '../helpers';
 
-// const theme = {
-//   primary: `
-//     color: dodgerblue;
-//     background-color: purple;
-//     &:hover {
-//       color: green;
-//       background-color: blue;
-//     }
-//   `,
-//   secondary: `
-//     color: dodgerblue;
-//     background-color: orange;
-//     &:hover {
-//       color: green;
-//       background-color: gold;
-//     }
-//   `,
-//   default: `
-//     color: dodgerblue;
-//     background-color: orange;
-//     &:hover {
-//       color: green;
-//       background-color: gold;
-//     }
-//   `,
-// };
-
-const Button = styled.button`
+export const Button = styled.button`
   font-size: 1em;
   margin: 1em;
-  padding: 0.25em 1em;
-  border-radius: 3px;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: ${props => props.theme.buttons.borderRadius};
+  ${props => getButtonColors(props)}
+  color: white;
   ${props =>
     props.disabled &&
     css`

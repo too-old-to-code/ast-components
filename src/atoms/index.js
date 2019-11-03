@@ -1,6 +1,7 @@
 export * from './badge';
 export * from './bubble';
 export * from './burger-menu';
+export * from './button-spacer';
 export * from './buttons';
 export * from './collapsible';
 export * from './drag-handle';
@@ -9,6 +10,7 @@ export * from './inputs';
 export * from './main-area';
 export * from './mobile-menu';
 export * from './modal-conductor';
+export * from './modal-wrapper';
 export * from './navbar';
 export * from './navbar-dropdown';
 export * from './navbar-item';
