@@ -18,5 +18,7 @@ export const BubbleDropdown = styled(Bubble)`
   padding: 20px;
   border-top: none;
   display: none;
+  &.selected {
+    display: block;
+  }
 `;
-

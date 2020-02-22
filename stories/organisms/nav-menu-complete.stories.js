@@ -18,7 +18,9 @@ import { AstModalConductor } from '../../src/app';
 import { AstModalWrapper } from '../../src/app';
 import { Button } from '../../src/app';
 import { AstButtonSpacer } from '../../src/app';
+import { AstDropdown } from '../../src/atoms/dropdown';
 import { theme } from '../../src/themes/theme-1';
+import { Panel } from '../../src/app';
 export default {
   title: 'Organisms.Test',
 };
@@ -88,15 +90,19 @@ export const Test = () => {
             <React.Fragment>
               <span>About</span>
               <span>Home</span>
-              <div>
-                <Gravatar
-                  email="andrewt51@hotmail.com"
-                  size={35}
-                  style={{ borderRadius: '50%', border: '2px solid white' }}
-                />
-                {/*<NavbarDropdown>otherstuff</NavbarDropdown>*/}
-                <BubbleDropdown>Some stuff here</BubbleDropdown>
-              </div>
+              <AstDropdown
+                trigger={
+                  <Gravatar
+                    email="andrewt51@hotmail.com"
+                    size={35}
+                    style={{ borderRadius: '50%', border: '2px solid white' }}
+                  />
+                }
+              >
+                <p>Option 1</p>
+                <p>Option 2</p>
+                <p>Option 3</p>
+              </AstDropdown>
             </React.Fragment>
           }
           mobileItems={
@@ -129,8 +135,14 @@ export const Test = () => {
               },
             ].map(obj => {
               return (
-                <AstDraggableBox data-id={obj.id} category={obj.category} key={obj.id} lightish>
-                  {obj.name}
+                <AstDraggableBox
+                  data-id={obj.id}
+                  id={obj.id}
+                  category={obj.category}
+                  key={obj.id}
+                  lightish
+                >
+                  {obj.name} {obj.id}
                 </AstDraggableBox>
               );
             })}

@@ -68,7 +68,6 @@ const IconWrapper = styled.span`
   border-right: #f4f4f4 2px solid;
   @media (max-width: ${'767'}px) {
     border-right: initial;
-    border-bottom: #f4f4f4 2px solid;
     padding: 20px;
   }
 `;
@@ -80,6 +79,7 @@ const TextWrapper = styled.span`
   margin-left: 25px;
   @media (max-width: ${'767'}px) {
     padding: 20px 5px;
+    margin-right: 20px;
   }
 `;
 

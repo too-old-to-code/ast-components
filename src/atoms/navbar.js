@@ -30,6 +30,7 @@ const Nav = styled.nav`
 
 const MyDiv = styled.div`
   display: flex;
+  margin-right: 20px;
   > * {
     display: flex;
     align-items: center;
@@ -40,9 +41,6 @@ const MyDiv = styled.div`
     &.selected {
       background: ${({ theme }) =>
         (theme && theme.navbar && theme.navbar.backgroundSelected) || 'black'};
-      > * {
-        display: block;
-      }
     }
     &:hover {
       color: ${({ theme }) => (theme && theme.navbar && theme.navbar.hoverTextColor) || 'black'};
