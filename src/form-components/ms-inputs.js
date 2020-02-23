@@ -61,51 +61,30 @@ const MsCharsPanel = styled.div`
   }
 `;
 
-function highlight(text, selection, tagType) {
-  const color = tagType === 'origin' ? '#37a425' : '#af3011';
-  let re = new RegExp(`<span data-id="${tagType}"[^>]*>(.*?)</span>`);
-  // console.log(selection.focusNode.parentElement.innerHTML);
-  // console.log(selection.focusNode.parentElement.innerHTML.split(re));
-  let temp = text.replace(re, '$1');
-  console.log(selection.toString());
-  // let temp = selection.baseNode.parentNode.innerText;
-  // console.log(temp);
-  console.log(selection.anchorOffset);
-  console.log(selection.focusOffset);
-  console.log(selection.rangeCount);
-  console.log(selection);
-  let start = Math.min(selection.anchorOffset, selection.focusOffset);
-  // console.log(selection.collapseToEnd());
-  // console.log(selection.anchorOffset);
-  let [str1, str2] = [temp.substring(0, start), temp.substring(start)];
-  // console.log(str1 + str2);
+// function highlight(text, selection, tagType) {
+//   const contentContainer = document.getElementById('test');
+//   const child = window.getSelection().anchorNode;
+//   // const currentParagraph = Array.from(contentContainer['children']).indexOf(child) + 1;
 
-  let a = str2.replace(
-    selection.toString().trim(),
-    x =>
-      `<span data-id="${tagType}" style="padding: 2px 5px; background-color: ${color}; border-radius: 2px; color: white;">${x}</span>`
-  );
-  // selection.removeAllRanges();
-  // let b = str2.replace(selection.toString().trim(), x => (
-  //   <span
-  //     data-id={tagType}
-  //     style={{
-  //       padding: '2px 5px',
-  //       backgroundColor: color,
-  //       borderRadius: '2px',
-  //       color: 'white',
-  //     }}
-  //   >
-  //     ${x}
-  //   </span>
-  // ));
-  return str1 + a;
-}
+//   const color = tagType === 'origin' ? '#37a425' : '#af3011';
+//   let re = new RegExp(`<span data-id="${tagType}"[^>]*>(.*?)</span>`);
+//   let temp = text.replace(re, '$1');
+//   let start = Math.min(selection.anchorOffset, selection.focusOffset);
+//   let [str1, str2] = [temp.substring(0, start), temp.substring(start)];
+
+//   let a = str2.replace(
+//     selection.toString().trim(),
+//     x =>
+//       `<span data-id="${tagType}" style="padding: 2px 5px; background-color: ${color}; border-radius: 2px; color: white;">${x}</span>`
+//   );
+
+//   return str1 + a;
+// }
 
 export const MsTextAreaWithHighlight = props => {
   const [value, setValue] = useState('');
   return (
-    <div style={{ position: 'relative', display: 'flex', minWidth: '226px', flex: 1 }}>
+    <div style={{ position: 'relative', display: 'flex', minWidth: '226px', flex: 1 }} id="test">
       <MsTextArea html={value} onChange={e => setValue(e.target.value)}></MsTextArea>
       <MsCharsPanel>
         <MsCharBlock
@@ -114,7 +93,8 @@ export const MsTextAreaWithHighlight = props => {
           onMouseUp={() => {
             let selection = document.getSelection();
             if (selection.toString() !== '') {
-              setValue(highlight(value, selection, 'origin'));
+              // selection.execCommand('mceInsertContent', false, 'qwer');
+              // setValue(highlight(value, selection, 'origin'));
             }
           }}
         />

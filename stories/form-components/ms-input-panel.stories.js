@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { MsInputPanel, MsInputGroup } from '../../src/form-components';
+import { MsInputPanel, MsInputGroup, MsInputGroupEditor } from '../../src/form-components';
 
 export default {
   title: 'FormComponents.MsInputPanel',
@@ -18,3 +18,14 @@ export const ExampleMsInputGroupPanel = () => (
     <MsInputGroup label="Memestory" id="memestory" textarea></MsInputGroup>
   </MsInputPanel>
 );
+
+export const MyEditor = () => {
+  const [value, setValue] = useState('');
+  return (
+    <MsInputPanel>
+      <MsInputGroup label="Lesson" id="lesson"></MsInputGroup>
+
+      <MsInputGroupEditor label="Lesson" />
+    </MsInputPanel>
+  );
+};
