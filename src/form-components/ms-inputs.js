@@ -61,30 +61,27 @@ const MsCharsPanel = styled.div`
   }
 `;
 
-// function highlight(text, selection, tagType) {
-//   const contentContainer = document.getElementById('test');
-//   const child = window.getSelection().anchorNode;
-//   // const currentParagraph = Array.from(contentContainer['children']).indexOf(child) + 1;
+function highlight(text, selection, tagType) {
+  // const currentParagraph = Array.from(contentContainer['children']).indexOf(child) + 1;
+  const color = tagType === 'origin' ? '#37a425' : '#af3011';
+  let re = new RegExp(`<span data-id="${tagType}"[^>]*>(.*?)</span>`);
+  let temp = text.replace(re, '$1');
+  let start = Math.min(selection.anchorOffset, selection.focusOffset);
+  let [str1, str2] = [temp.substring(0, start), temp.substring(start)];
 
-//   const color = tagType === 'origin' ? '#37a425' : '#af3011';
-//   let re = new RegExp(`<span data-id="${tagType}"[^>]*>(.*?)</span>`);
-//   let temp = text.replace(re, '$1');
-//   let start = Math.min(selection.anchorOffset, selection.focusOffset);
-//   let [str1, str2] = [temp.substring(0, start), temp.substring(start)];
+  let a = str2.replace(
+    selection.toString().trim(),
+    x =>
+      `<span data-id="${tagType}" style="padding: 1px 3px; background-color: ${color}; border-radius: 2px; color: white;">${x}</span>`
+  );
 
-//   let a = str2.replace(
-//     selection.toString().trim(),
-//     x =>
-//       `<span data-id="${tagType}" style="padding: 2px 5px; background-color: ${color}; border-radius: 2px; color: white;">${x}</span>`
-//   );
-
-//   return str1 + a;
-// }
+  return str1 + a;
+}
 
 export const MsTextAreaWithHighlight = props => {
   const [value, setValue] = useState('');
   return (
-    <div style={{ position: 'relative', display: 'flex', minWidth: '226px', flex: 1 }} id="test">
+    <div style={{ position: 'relative', display: 'flex', minWidth: '226px', flex: 1 }}>
       <MsTextArea html={value} onChange={e => setValue(e.target.value)}></MsTextArea>
       <MsCharsPanel>
         <MsCharBlock
@@ -94,7 +91,7 @@ export const MsTextAreaWithHighlight = props => {
             let selection = document.getSelection();
             if (selection.toString() !== '') {
               // selection.execCommand('mceInsertContent', false, 'qwer');
-              // setValue(highlight(value, selection, 'origin'));
+              setValue(highlight(value, selection, 'origin'));
             }
           }}
         />

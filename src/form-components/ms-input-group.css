@@ -16,15 +16,14 @@
 .toolbarClassName,
 .wrapperClassName {
   background: #e4ecf6;
-  /*margin: 0 auto;*/
   flex: 1;
 }
 
 .toolbarClassName {
   background: #e4ecf6;
   border: 1px solid #4d4d4d;
-  position: sticky;
   z-index: 5;
+  transition: visibility 0s 0.5s;
 }
 
 .rdw-option-wrapper,
