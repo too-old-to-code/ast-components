@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const AstBadge = styled.span`
-  background: gold;
+  background-color: ${({ theme }) => theme && theme.colors && theme.colors.navbar};
   color: white;
   padding: 4px;
   border-radius: 5px;

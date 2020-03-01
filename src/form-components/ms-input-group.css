@@ -1,11 +1,11 @@
 .editorClassName,
 .focusedEditorClassName {
-  padding: 10px 30px;
   line-height: 1em;
   height: inherit;
   border-bottom: 2px solid #273c75;
   transition: transform 0.5s;
   transform: translateY(-70px);
+  padding: 10px 30px;
 }
 
 .focusedEditorClassName {
@@ -15,19 +15,29 @@
 
 .toolbarClassName,
 .wrapperClassName {
-  background: #e4ecf6;
   flex: 1;
 }
 
 .toolbarClassName {
-  background: #e4ecf6;
-  border: 1px solid #4d4d4d;
+  /*background: #192a56;*/
+  /*border: 1px solid #4d4d4d;*/
+  background: transparent;
+  border: none;
   z-index: 5;
   transition: visibility 0s 0.5s;
+  position: relative;
+  justify-content: center;
 }
 
 .rdw-option-wrapper,
 .rdw-dropdown-wrapper,
 .rdw-dropdown-optionwrapper {
   border: 1px solid #4d4d4d;
+}
+
+.rdw-emoji-modal {
+  flex-direction: row;
+  width: 200px;
+  height: inherit;
+  /*width: inherit;*/
 }

@@ -18,5 +18,7 @@ module.exports = function({ config }) {
     loaders: ['style-loader', 'css-loader', 'sass-loader'],
   });
 
+  // config.transform('code', { plugins: ['@babel/plugin-proposal-optional-chaining'] });
+
   return config;
 };

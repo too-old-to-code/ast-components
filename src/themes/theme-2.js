@@ -1,8 +1,8 @@
 const DEFAULT = '#718093';
 const DEFAULT_DARK = '#556170';
-const PRIMARY = '#B3C7E1';
+const PRIMARY = '#e1d9b3';
 const PRIMARY_DARK = '#101932';
-const SECONDARY = ' #e4ecf6';
+const SECONDARY = '#f5f6e4';
 // const SECONDARY_DARK = '#990075';
 const INFO = '#00a8ff';
 const INFO_DARK = '#007dbf';
@@ -18,7 +18,7 @@ const DARK = '#2f3640';
 const DARKISH = '#353b48';
 
 // Template colors
-const NAVBAR = '#192a56';
+const NAVBAR = '#898d55';
 const NAVBAR_DARK = '#00113D';
 const SIDEBAR = '#273c75';
 // const FOOTER = 'black'

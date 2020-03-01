@@ -5,8 +5,9 @@ import { checkColor } from '../helpers';
 export const AstPlainBox = styled.div`
   ${props => (props.noPadding ? 'padding: 0' : 'padding: 10px')};
   background-color: ${props => checkColor(props)};
-  border: 1px solid grey;
+  // border: 1px solid grey;
   margin: 10px;
+  background-color: rgb(179, 199, 225);
 `;
 
 AstPlainBox.propTypes = {

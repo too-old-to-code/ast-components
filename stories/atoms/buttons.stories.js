@@ -30,6 +30,7 @@ const options = {
   danger: 'danger',
   success: 'success',
   info: 'info',
+  lightish: 'lightish',
 };
 const defaultValue = 'warning';
 const groupId = 'types';
@@ -107,6 +108,17 @@ export const Warning = () => (
   </ThemeProvider>
 );
 
+export const Lightish = () => (
+  <ThemeProvider theme={theme}>
+    <Button lightish onClick={action('clicked')}>
+      {text('value', 'Hello Storybook')}
+    </Button>
+    <Button lightish disabled onClick={action('clicked')}>
+      {text('value', 'Hello Storybook')}
+    </Button>
+  </ThemeProvider>
+);
+
 Primary.story = {
   name: 'Primary',
 };
@@ -129,4 +141,8 @@ Info.story = {
 
 Warning.story = {
   name: 'Warning',
+};
+
+Lightish.story = {
+  name: 'Lightish',
 };

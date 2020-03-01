@@ -39,6 +39,8 @@ export const getButtonColors = props => {
       return props.theme.buttons.warning;
     case props.info:
       return props.theme.buttons.info;
+    case props.lightish:
+      return props.theme.buttons.lightish;
     default:
       return '';
   }

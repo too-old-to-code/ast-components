@@ -1,6 +1,6 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   entry: './src/app.js',
@@ -37,6 +37,7 @@ module.exports = {
     ],
   },
   plugins: [
+    // '@babel/plugin-proposal-optional-chaining',
     // new HtmlWebpackPlugin({
     //   template: './src/index.html',
     // }),

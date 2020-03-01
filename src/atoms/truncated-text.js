@@ -7,4 +7,5 @@ export const TruncatedText = styled.div`
   display: inline-block;
   flex: 1;
   min-width: 0;
+  padding: 0 10px;
 `;

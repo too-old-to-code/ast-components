@@ -104,7 +104,7 @@ export const MsInputGroup = props => {
         html={'hello'}
         onMouseUp={test}
         innerRef={textEditable}
-      ></MsTextAreaWithHighlight>
+      />
       {/*<MsTextArea
         id={props.id}
         html={'hello'}
