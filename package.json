@@ -59,6 +59,7 @@
     "storybook-addon-jsx": "^7.1.6",
     "storybook-readme": "^5.0.8",
     "styled-components": "^4.4.0",
+    "url-loader": "^3.0.0",
     "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.2"
